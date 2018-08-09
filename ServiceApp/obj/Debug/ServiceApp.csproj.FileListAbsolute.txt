@@ -1,0 +1,7 @@
+D:\DBS\EIS\POC\ServiceApp\ServiceApp\bin\ServiceApp.dll.config
+D:\DBS\EIS\POC\ServiceApp\ServiceApp\bin\ServiceApp.dll
+D:\DBS\EIS\POC\ServiceApp\ServiceApp\bin\ServiceApp.pdb
+D:\DBS\EIS\POC\ServiceApp\ServiceApp\obj\Debug\ServiceApp.csprojResolveAssemblyReference.cache
+D:\DBS\EIS\POC\ServiceApp\ServiceApp\obj\Debug\ServiceApp.csproj.CoreCompileInputs.cache
+D:\DBS\EIS\POC\ServiceApp\ServiceApp\obj\Debug\ServiceApp.dll
+D:\DBS\EIS\POC\ServiceApp\ServiceApp\obj\Debug\ServiceApp.pdb
