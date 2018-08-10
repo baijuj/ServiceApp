@@ -20,6 +20,15 @@ namespace ServiceApp
         List<Sales> GetSaleData();
 
         [OperationContract]
+        List<SalesCommon> GetQuarterlySales();
+
+        [OperationContract]
+        List<SalesCommon> GetPurchase();
+
+        [OperationContract]
+        List<SalesCommon> GetRevenue();
+
+        [OperationContract]
         CompositeType GetDataUsingDataContract(CompositeType composite);
 
         // TODO: Add your service operations here
@@ -57,4 +66,17 @@ namespace ServiceApp
         [DataMember]
         public int Quantity { get; set; }
     }
+
+    [DataContract]
+    public class SalesCommon
+    {
+        [DataMember]
+        public string Year { get; set; }
+
+        [DataMember]
+        public string Quarter { get; set; }
+
+        [DataMember]
+        public int Sales { get; set; }
     }
+}

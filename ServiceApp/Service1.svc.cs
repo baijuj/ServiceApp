@@ -22,19 +22,39 @@ namespace ServiceApp
 
         public List<Sales> GetSaleData()
         {
-            DataSet ds = GetDataSet("");
+            DataSet ds = GetSaleData("");
             List<Sales> result = new List<Sales>();
             result = ds.Tables[0].AsEnumerable().Select(dataRow => new Sales { Category = dataRow.Field<string>("Category"), Quantity = dataRow.Field<int>("Quantity") }).ToList();
-
-            
-
-            //result.Add(new Sales { Category = 2000, Volume = 100 });
-            //result.Add(new Sales { Year = 2010, Volume = 900 });
 
             return result;
         }
 
-        public DataSet GetDataSet(string paramValue)
+        public List<SalesCommon> GetQuarterlySales()
+        {
+            DataSet ds = GetQuarterlySales("");
+            List<SalesCommon> result = new List<SalesCommon>();
+            result = ds.Tables[0].AsEnumerable().Select(dataRow => new SalesCommon { Year = dataRow.Field<string>("Year"), Quarter = dataRow.Field<string>("Quarter"), Sales = dataRow.Field<int>("Sales") }).ToList();
+
+            return result;
+        }
+        public List<SalesCommon> GetPurchase()
+        {
+            DataSet ds = GetPurchase("");
+            List<SalesCommon> result = new List<SalesCommon>();
+            result = ds.Tables[0].AsEnumerable().Select(dataRow => new SalesCommon { Year = dataRow.Field<string>("Year"), Quarter = dataRow.Field<string>("Quarter"), Sales = dataRow.Field<int>("Sales") }).ToList();
+
+            return result;
+        }
+        public List<SalesCommon> GetRevenue()
+        {
+            DataSet ds = GetRevenue("");
+            List<SalesCommon> result = new List<SalesCommon>();
+            result = ds.Tables[0].AsEnumerable().Select(dataRow => new SalesCommon { Year = dataRow.Field<string>("Category"), Quarter = dataRow.Field<string>("Quarter"), Sales = dataRow.Field<int>("Sales") }).ToList();
+
+            return result;
+        }
+
+        public DataSet GetSaleData(string paramValue)
         {
             SqlConnection sqlConn = new SqlConnection(WebConfigurationManager.ConnectionStrings["SqlCon"].ConnectionString);
             SqlCommand sqlcomm = new SqlCommand();
@@ -46,18 +66,6 @@ namespace ServiceApp
                 {
                     using (SqlDataAdapter da = new SqlDataAdapter())
                     {
-                        //// This will be your input parameter and its value
-                        //sqlcomm.Parameters.AddWithValue("@ParameterName", paramValue);
-
-                        //// You can retrieve values of `output` variables
-                        //var returnParam = new SqlParameter
-                        //{
-                        //    ParameterName = "@Error",
-                        //    Direction = ParameterDirection.Output,
-                        //    Size = 1000
-                        //};
-                        //sqlcomm.Parameters.Add(returnParam);
-                        // Name of stored procedure
                         sqlcomm.CommandText = "uspGetSalesByCategory";
                         da.SelectCommand = sqlcomm;
                         da.SelectCommand.CommandType = CommandType.StoredProcedure;
@@ -67,10 +75,98 @@ namespace ServiceApp
                         return ds;
                     }
                 }
-                //catch (Exception ex)
-                //{
-                //    Console.WriteLine("SQL Error: " + ex.Message);
-                //}
+
+                catch (Exception e)
+                {
+                    Console.WriteLine("Error: " + e.Message);
+                }
+            }
+            return new DataSet();
+        }
+
+
+        public DataSet GetQuarterlySales(string paramValue)
+        {
+            SqlConnection sqlConn = new SqlConnection(WebConfigurationManager.ConnectionStrings["SqlCon"].ConnectionString);
+            SqlCommand sqlcomm = new SqlCommand();
+
+            sqlcomm.Connection = sqlConn;
+            using (sqlConn)
+            {
+                try
+                {
+                    using (SqlDataAdapter da = new SqlDataAdapter())
+                    {
+                        sqlcomm.CommandText = "uspGetQuarterlySales";
+                        da.SelectCommand = sqlcomm;
+                        da.SelectCommand.CommandType = CommandType.StoredProcedure;
+
+                        DataSet ds = new DataSet();
+                        da.Fill(ds);
+                        return ds;
+                    }
+                }
+
+                catch (Exception e)
+                {
+                    Console.WriteLine("Error: " + e.Message);
+                }
+            }
+            return new DataSet();
+        }
+
+        public DataSet GetPurchase(string paramValue)
+        {
+            SqlConnection sqlConn = new SqlConnection(WebConfigurationManager.ConnectionStrings["SqlCon"].ConnectionString);
+            SqlCommand sqlcomm = new SqlCommand();
+
+            sqlcomm.Connection = sqlConn;
+            using (sqlConn)
+            {
+                try
+                {
+                    using (SqlDataAdapter da = new SqlDataAdapter())
+                    {
+                        sqlcomm.CommandText = "uspGetPurchase";
+                        da.SelectCommand = sqlcomm;
+                        da.SelectCommand.CommandType = CommandType.StoredProcedure;
+
+                        DataSet ds = new DataSet();
+                        da.Fill(ds);
+                        return ds;
+                    }
+                }
+
+                catch (Exception e)
+                {
+                    Console.WriteLine("Error: " + e.Message);
+                }
+            }
+            return new DataSet();
+        }
+
+        public DataSet GetRevenue(string paramValue)
+        {
+            SqlConnection sqlConn = new SqlConnection(WebConfigurationManager.ConnectionStrings["SqlCon"].ConnectionString);
+            SqlCommand sqlcomm = new SqlCommand();
+
+            sqlcomm.Connection = sqlConn;
+            using (sqlConn)
+            {
+                try
+                {
+                    using (SqlDataAdapter da = new SqlDataAdapter())
+                    {
+                        sqlcomm.CommandText = "uspGetRevenue";
+                        da.SelectCommand = sqlcomm;
+                        da.SelectCommand.CommandType = CommandType.StoredProcedure;
+
+                        DataSet ds = new DataSet();
+                        da.Fill(ds);
+                        return ds;
+                    }
+                }
+
                 catch (Exception e)
                 {
                     Console.WriteLine("Error: " + e.Message);

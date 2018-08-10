@@ -13,6 +13,20 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Sales" nillable="true" type="tns:Sales" />
+  <xs:complexType name="ArrayOfSalesCommon">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SalesCommon" nillable="true" type="tns:SalesCommon" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSalesCommon" nillable="true" type="tns:ArrayOfSalesCommon" />
+  <xs:complexType name="SalesCommon">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Quarter" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sales" type="xs:int" />
+      <xs:element minOccurs="0" name="Year" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SalesCommon" nillable="true" type="tns:SalesCommon" />
   <xs:complexType name="CompositeType">
     <xs:sequence>
       <xs:element minOccurs="0" name="BoolValue" type="xs:boolean" />

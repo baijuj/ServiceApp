@@ -19,6 +19,24 @@
   <wsdl:message name="IService1_GetSaleData_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetSaleDataResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_GetQuarterlySales_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetQuarterlySales" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetQuarterlySales_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetQuarterlySalesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetPurchase_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPurchase" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetPurchase_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPurchaseResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetRevenue_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRevenue" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetRevenue_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRevenueResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_GetDataUsingDataContract_InputMessage">
     <wsdl:part name="parameters" element="tns:GetDataUsingDataContract" />
   </wsdl:message>
@@ -33,6 +51,18 @@
     <wsdl:operation name="GetSaleData">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetSaleData" message="tns:IService1_GetSaleData_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetSaleDataResponse" message="tns:IService1_GetSaleData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetQuarterlySales">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetQuarterlySales" message="tns:IService1_GetQuarterlySales_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetQuarterlySalesResponse" message="tns:IService1_GetQuarterlySales_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPurchase">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetPurchase" message="tns:IService1_GetPurchase_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetPurchaseResponse" message="tns:IService1_GetPurchase_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRevenue">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetRevenue" message="tns:IService1_GetRevenue_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetRevenueResponse" message="tns:IService1_GetRevenue_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetDataUsingDataContract">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetDataUsingDataContract" message="tns:IService1_GetDataUsingDataContract_InputMessage" />
@@ -52,6 +82,33 @@
     </wsdl:operation>
     <wsdl:operation name="GetSaleData">
       <soap:operation soapAction="http://tempuri.org/IService1/GetSaleData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetQuarterlySales">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetQuarterlySales" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPurchase">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetPurchase" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRevenue">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetRevenue" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -91,7 +91,7 @@
       
       <div >
            <telerik:RadHtmlChart ID="RadHtmlChart2" runat="server" Width="400" Height="250">
-               <ChartTitle Text="Purchase History">
+               <ChartTitle Text="Revenue in Years">
                 </ChartTitle>
                <PlotArea>
 
@@ -154,7 +154,7 @@
     <MinorGridLines Visible="false" />
 </YAxis>
 		</PlotArea>
-       <ChartTitle Text="Revenue in Years">
+       <ChartTitle Text="Purchase History">
                 </ChartTitle>
            </telerik:RadHtmlChart>
       </div>
